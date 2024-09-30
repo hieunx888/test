@@ -567,6 +567,10 @@ body.dark-mode hr {
   .notes-list button {
     width: 100px;
   }
+
+  .delete-btn {
+    width: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -599,6 +603,9 @@ body.dark-mode hr {
   }
   .notes-list button {
     width: 100px;
+  }
+  .delete-btn {
+    width: 20px;
   }
 }
 
@@ -633,6 +640,9 @@ body.dark-mode hr {
   .notes-list button {
     width: 100px;
   }
+  .delete-btn {
+    width: 20px;
+  }
 }
 
 @media (max-width: 414px) and (min-width: 375px) {
@@ -665,5 +675,8 @@ body.dark-mode hr {
   }
   .notes-list button {
     width: 100px;
+  }
+  .delete-btn {
+    width: 20px;
   }
 }
