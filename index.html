@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <h1 class="navbar-title">Flashcard App</h1>
+        <div class="navbar-links">
+          <a href="./index.html">Flashcard</a>
+          <a href="./timetable.html">Timetable</a>
+        </div>
+      </div>
+    </nav>
+    <div class="app-container">
+      <div class="flashcard-container" id="flashcards">
+        <div class="flashcard" onclick="flipCard()">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <p id="front-content">Click to flip</p>
+            </div>
+            <div class="flashcard-back">
+              <p id="back-content">Answer here</p>
+            </div>
+          </div>
+        </div>
+        <div class="controls">
+          <button onclick="markRemembered()">Remembered</button>
+          <button onclick="markNotRemembered()">Not Remembered</button>
+          <button onclick="studyCards()">Study</button>
+          <button onclick="resetCards()">Reset</button>
+        </div>
+        <div class="input-container">
+          <input type="text" id="front-input" placeholder="Front of card" />
+          <input type="text" id="back-input" placeholder="Back of card" />
+          <button onclick="addCard()">Add Card</button>
+        </div>
+      </div>
+      <div class="card-list">
+        <h2>Card List</h2>
+        <ul id="card-list-items"></ul>
+        <button id="delete-all-btn" onclick="deleteAllCards()">
+          Delete All Cards
+        </button>
+      </div>
+      <div class="pomodoro-timer" id="timetable">
+        <div class="mode-toggle" style="display: inline-block">
+          <button id="mode-toggle-btn" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+        <h2>Pomodoro Timer</h2>
+        <div id="timer-display">25:00</div>
+        <input
+          type="number"
+          id="custom-duration"
+          placeholder="Custom Duration (min)"
+          min="1"
+        />
+        <div>
+          <button id="set-duration-btn">Set Duration</button>
+          <button id="start-btn">Start</button>
+        </div>
+        <div>
+          <hr />
+        </div>
+        <button id="stop-btn">Stop</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Hieu Nguyen</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

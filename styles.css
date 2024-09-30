@@ -1,0 +1,522 @@
+:root {
+  --primary-color: #ff88cc; /* Soft pink */
+  --secondary-color: #ff4081; /* Bright pink */
+  --card-front-color: #ffe0f0; /* Light pink */
+  --text-color: #333;
+  --background-color: #ffffff; /* White */
+  --card-list-background: #ffffff; /* White */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  --primary-color: #1e1e2f; /* Dark navy */
+  --secondary-color: #4caf50; /* Green */
+  --card-front-color: #2c3e50; /* Darker navy */
+  --text-color: #00ff00; /* Bright green */
+  --line-color: #4caf50; /* Green for lines in dark mode */
+  --background-color: #0d0d0d; /* Very dark */
+  --card-list-background: #1e1e1e; /* Dark gray */
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#mode-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.flashcard-container {
+  flex: 1;
+  max-width: 500px;
+}
+
+.flashcard {
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.flashcard-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, 4vw, 24px);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flashcard-front {
+  background-color: var(--card-front-color);
+  color: var(--text-color);
+}
+
+.flashcard-back {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: clamp(14px, 3vw, 18px);
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 12px;
+  font-size: clamp(14px, 3vw, 18px);
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.card-list {
+  flex: 1;
+  max-width: 300px;
+  background-color: var(--card-list-background);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-list h2 {
+  margin-top: 0;
+  color: var(--secondary-color);
+}
+
+#card-list-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+#card-list-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+#card-list-items li:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.card-text {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.delete-btn:hover {
+  color: #cc0000;
+}
+
+#delete-all-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Pomodoro Timer Styles */
+.pomodoro-timer {
+  flex: 1;
+  max-width: 300px;
+  background-color: var(--card-list-background);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#timer-display {
+  font-size: 2em;
+  margin: 20px 0;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flashcard-container,
+  .card-list,
+  .pomodoro-timer {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.pomodoro-history li {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: clamp(14px, 3vw, 18px);
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: calc(100% - 24px); /* Adjust width to account for padding */
+  margin-bottom: 10px;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 3%;
+  border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px; /* Space between links */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.mode-toggle {
+  display: flex;
+  align-items: center;
+}
+
+#mode-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input[type="time"],
+input[type="text"] {
+  padding: 10px;
+  font-size: clamp(14px, 3vw, 18px);
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  flex: 1; /* Make inputs take available space */
+}
+
+button {
+  padding: 12px 24px;
+  font-size: clamp(14px, 3vw, 18px);
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.timetable-container {
+  flex: 1;
+  max-width: 800px;
+  background-color: var(--card-list-background);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center the container */
+  text-align: left; /* Align text to the left */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Add inside your existing CSS */
+
+/* Light mode styles */
+
+body.light-mode .fa {
+  color: var(--text-color); /* Use your main text color */
+}
+
+body hr {
+  background-color: var(--text-color);
+}
+
+/* Dark mode styles */
+body.dark-mode .fa {
+  color: #00ff00; /* Bright green or any other color for dark mode */
+}
+
+/* Additional styles for the mode toggle button */
+#mode-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color); /* Match text color */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+body.light-mode hr {
+  color: var(--text-color); /* Use your main text color */
+}
+
+body.dark-mode hr {
+  color: #00ff00; /* Bright green or any other color for dark mode */
+}
+
+.note-taking-area {
+  background-color: var(--card-list-background);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 300px; /* Adjust width for note area */
+}
+
+.note-taking-area h2 {
+  margin-top: 0;
+  color: var(--secondary-color);
+}
+
+.note-input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.add-note-btn {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-note-btn:hover {
+  background-color: var(--primary-color); /* Hover effect */
+}
+
+.notes-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.notes-list li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.notes-list li:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .note-taking-area {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.note-taking-area {
+  width: 50%; /* Adjust as needed */
+  max-width: 450px; /* Optional: set a max width */
+  margin: 20px auto; /* Center the area */
+}
+
+.note-input {
+  width: 100%; /* Full width */
+  height: 150px; /* Fixed height */
+  resize: none; /* Prevent resizing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Add some padding and border for better aesthetics */
+.note-taking-area textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.notes-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  max-height: 200px; /* Set a maximum height for the notes list */
+  overflow-y: auto; /* Allow scrolling if the notes exceed the max height */
+}
+
+.notes-list li {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between note text and delete button */
+  padding: 10px; /* Add some padding */
+  border: 1px solid #ccc; /* Add a border for clarity */
+  margin: 5px 0; /* Vertical spacing between notes */
+  width: 100%; /* Full width of the container */
+  box-sizing: border-box; /* Ensure padding and border are included in the total width */
+}
+
+/* Optional: Style for the delete button */
+.notes-list button {
+  margin-left: 10px; /* Space between note text and button */
+  background-color: var(
+    --secondary-color
+  ); /* Red background for delete button */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 5px 10px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+}
