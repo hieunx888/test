@@ -558,7 +558,7 @@ body.dark-mode hr {
     width: 90%;
   }
   .note-taking-area {
-    width: 100%;
+    width: 90%;
   }
   .notes-list li {
     justify-content: space-between;
@@ -571,59 +571,99 @@ body.dark-mode hr {
 
 @media (max-width: 600px) {
   .flashcard {
-    height: 150px;
+    height: 180px;
   }
 
   .flashcard-inner {
-    transform: scale(0.8);
-  }
-
-  .input-container input {
-    width: calc(100% - 1rem);
+    transform: scale(0.9);
   }
 
   button {
-    padding: 0.7rem;
+    width: 100%;
   }
 
-  .pomodoro-timer {
-    margin-top: 1rem;
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timetable-container {
+    width: 90%;
+  }
+  .note-taking-area {
+    width: 90%;
+  }
+  .notes-list li {
+    justify-content: space-between;
+    display: flex; /* Use flexbox for alignment */
+  }
+  .notes-list button {
+    width: 100px;
   }
 }
 
 @media (max-width: 400px) {
-  #timer-display {
-    font-size: 1.5rem;
+  .flashcard {
+    height: 180px;
+  }
+
+  .flashcard-inner {
+    transform: scale(0.9);
   }
 
   button {
-    padding: 0.5rem;
+    width: 100%;
   }
 
-  .navbar-links {
+  .controls {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
-  .navbar-links a {
-    margin: 0.5rem 0;
+  .timetable-container {
+    width: 90%;
+  }
+  .note-taking-area {
+    width: 90%;
+  }
+  .notes-list li {
+    justify-content: space-between;
+    display: flex; /* Use flexbox for alignment */
+  }
+  .notes-list button {
+    width: 100px;
   }
 }
 
 @media (max-width: 414px) and (min-width: 375px) {
-  .flashcard-container {
-    max-width: 90%; /* Adjust to make it wider on this screen size */
+  .flashcard {
+    height: 180px;
   }
 
-  .flashcard {
-    height: 160px; /* Adjust height if necessary */
+  .flashcard-inner {
+    transform: scale(0.9);
   }
 
   button {
-    padding: 0.8rem; /* Increase button padding for easier tapping */
+    width: 100%;
   }
 
-  #timer-display {
-    font-size: 1.8rem; /* Adjust font size for better visibility */
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timetable-container {
+    width: 90%;
+  }
+  .note-taking-area {
+    width: 90%;
+  }
+  .notes-list li {
+    justify-content: space-between;
+    display: flex; /* Use flexbox for alignment */
+  }
+  .notes-list button {
+    width: 100px;
   }
 }
