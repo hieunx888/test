@@ -580,3 +580,21 @@ body.dark-mode hr {
     margin: 0.5rem 0;
   }
 }
+
+@media (max-width: 414px) and (min-width: 375px) {
+  .flashcard-container {
+    max-width: 90%; /* Adjust to make it wider on this screen size */
+  }
+
+  .flashcard {
+    height: 160px; /* Adjust height if necessary */
+  }
+
+  button {
+    padding: 0.8rem; /* Increase button padding for easier tapping */
+  }
+
+  #timer-display {
+    font-size: 1.8rem; /* Adjust font size for better visibility */
+  }
+}
