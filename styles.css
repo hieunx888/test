@@ -571,6 +571,9 @@ body.dark-mode hr {
   .delete-btn {
     width: 20px;
   }
+  .app-container {
+    margin-bottom: 3%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -606,6 +609,9 @@ body.dark-mode hr {
   }
   .delete-btn {
     width: 20px;
+  }
+  .app-container {
+    margin-bottom: 3%;
   }
 }
 
@@ -643,6 +649,9 @@ body.dark-mode hr {
   .delete-btn {
     width: 20px;
   }
+  .app-container {
+    margin-bottom: 3%;
+  }
 }
 
 @media (max-width: 414px) and (min-width: 375px) {
@@ -678,5 +687,8 @@ body.dark-mode hr {
   }
   .delete-btn {
     width: 20px;
+  }
+  .app-container {
+    margin-bottom: 3%;
   }
 }
