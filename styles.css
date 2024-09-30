@@ -520,3 +520,63 @@ body.dark-mode hr {
   color: white;
   text-align: center;
 }
+
+@media (max-width: 900px) {
+  .flashcard {
+    height: 180px;
+  }
+
+  .flashcard-inner {
+    transform: scale(0.9);
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 600px) {
+  .flashcard {
+    height: 150px;
+  }
+
+  .flashcard-inner {
+    transform: scale(0.8);
+  }
+
+  .input-container input {
+    width: calc(100% - 1rem);
+  }
+
+  button {
+    padding: 0.7rem;
+  }
+
+  .pomodoro-timer {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #timer-display {
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-links a {
+    margin: 0.5rem 0;
+  }
+}
